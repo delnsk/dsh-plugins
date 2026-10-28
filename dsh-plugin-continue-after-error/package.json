@@ -1,0 +1,39 @@
+{
+  "name": "@local/dsh-plugin-continue-after-error",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Adds a localized “Продолжить” button under a turn that stopped on a provider or stream error, so one click resumes the agent where it left off.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "lib/*.js",
+    "locale/*.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build-client.mjs",
+    "test": "node test/continue.test.mjs && node test/host.test.mjs && node test/client-harness.test.mjs && node test/build.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "license": "MIT"
+}

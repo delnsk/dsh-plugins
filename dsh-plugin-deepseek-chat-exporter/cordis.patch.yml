@@ -1,0 +1,42 @@
+# Bundle patch for @local/dsh-deepseek-chat-exporter.
+# One row activates both halves: the Host half registers the /dsh-chat-exporter route
+# and the /export-chats command, the Client half adds the main-column panel and its
+# sidebar entry (the `dsh.client` section of package.json).
+#
+# Every key below is optional; the Host half merges the row's config over its defaults.
+# Endpoint tables live here so they can be retuned without rebuilding the client bundle.
+- insert:
+    - id: deepseek-chat-exporter
+      name: '@local/dsh-deepseek-chat-exporter'
+      config:
+        outputDir: research
+        cacheFileName: .dsh-chat-exporter-cache.json
+        # workspaceRoot: 'C:\path\to\workspace'   # default: the Host working directory
+        labelUser: 'Пользователь'
+        labelAssistant: 'Ассистент'
+        fileNameMaxTitle: 60
+        commandWaitMs: 180000
+        maxChats: 500
+        api:
+          base: 'https://chat.deepseek.com'
+          authProbe:
+            method: GET
+            path: '/api/v0/users/current'
+          listEndpoints:
+            # GET is the working variant (verified 2026-10-28); POST answers INVALID_TOKEN for
+            # the same credential and is kept only as a fallback.
+            - method: GET
+              path: '/api/v0/chat_session/fetch_page?count=100'
+            - method: POST
+              path: '/api/v0/chat_session/fetch_page?count=100'
+              body: '{}'
+          historyEndpoints:
+            - method: GET
+              path: '/api/v0/chat/history_messages?chat_session_id={chatId}'
+            - method: POST
+              path: '/api/v0/chat/history_messages'
+              body: '{"chat_session_id":"{chatId}"}'
+          domFallback:
+            enabled: true
+            messageSelector: '[data-message-author-role], .ds-message'
+            roleAttribute: 'data-message-author-role'

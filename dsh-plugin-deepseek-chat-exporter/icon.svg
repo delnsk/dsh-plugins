@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="DeepSeek Chat Exporter">
+  <defs>
+    <linearGradient id="dsce-bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2f7ff0"/>
+      <stop offset="1" stop-color="#1b4fa8"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#dsce-bg)"/>
+  <!-- speech bubble outline -->
+  <path d="M19 22.5h26a5.5 5.5 0 0 1 5.5 5.5v13a5.5 5.5 0 0 1-5.5 5.5H31.2l-8.7 6.2a1 1 0 0 1-1.6-.8v-5.4H19a5.5 5.5 0 0 1-5.5-5.5V28A5.5 5.5 0 0 1 19 22.5Z" fill="none" stroke="#ffffff" stroke-opacity="0.92" stroke-width="2.6" stroke-linejoin="round"/>
+  <!-- download arrow -->
+  <path d="M32 29.5v10.2" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M27.4 35.4 32 40l4.6-4.6" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- baseline -->
+  <path d="M27 44h10" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+</svg>

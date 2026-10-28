@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DeepSeek Chat Exporter",
+    "description": "Opens chat.deepseek.com in an isolated in-app panel and exports your DeepSeek dialogs into Markdown files under research/ in the current workspace."
+  }
+}

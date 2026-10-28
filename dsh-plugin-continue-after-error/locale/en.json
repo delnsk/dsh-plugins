@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Continue after error",
+    "description": "Adds a “Продолжить” button under a turn that stopped on a provider or stream error, so one click resumes the agent where it left off."
+  }
+}

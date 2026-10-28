@@ -1,0 +1,27 @@
+# Bundle patch for @local/dsh-plugin-continue-after-error.
+#
+# One row activates both halves: the Host half registers the /dsh-continue/rpc
+# route (profile settings + diagnostics), the Client half adds the "Продолжить"
+# entry to the Chat target's completed-turn tail (the `dsh.client` section of
+# package.json).
+#
+# Every key below is optional; the Host half merges the row's config over its
+# defaults and ignores unknown keys. The Client half keeps its own localized
+# defaults, so a profile that never touches this file still works.
+- insert:
+    - id: continue-after-error
+      name: '@local/dsh-plugin-continue-after-error'
+      config:
+        # Stop reasons that show the button. Known kinds:
+        # error | interrupted | aborted | max-tokens
+        triggerOn:
+          - error
+          - interrupted
+          - aborted
+        # Overrides the localized default continuation message. Leave empty to use
+        # the UI language (ru/en/zh) default.
+        prompt: ''
+        # Appends bounded entries to <workspace>/.dsh-continue-diagnostics.json.
+        diagnostics: true
+        diagnosticsFileName: .dsh-continue-diagnostics.json
+        # workspaceRoot: 'C:\path\to\workspace'   # default: the registered workspace

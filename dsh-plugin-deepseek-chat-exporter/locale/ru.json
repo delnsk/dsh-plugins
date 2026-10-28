@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Экспорт чатов DeepSeek",
+    "description": "Открывает chat.deepseek.com в изолированной панели и экспортирует диалоги DeepSeek в Markdown-файлы в папку research/ текущей рабочей области."
+  }
+}
